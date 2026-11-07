@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From Code to Light — A Developer's Diwali</title>
+  <meta name="description"
+    content="A cinematic interactive storytelling web experience by Ashutosh Srivastav where programming code transforms into the warm golden light of Diwali." />
+  <meta property="og:title" content="From Code to Light — A Developer's Diwali" />
+  <meta property="og:description"
+    content="A cinematic interactive storytelling web experience by Ashutosh Srivastav where programming code transforms into the warm golden light of Diwali." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./style.css" />
+
+  <!-- GSAP CDN (with built-in timeline engine fallback in script.js) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" async></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body data-scene="1">
+  <!-- Top Navigation Bar (Minimal 2-Zone Header: Brand & Interactive Controls) -->
+  <header class="top-nav" role="banner">
+    <!-- Zone 1: Official Brand Wordmark -->
+    <a href="#experience-stage" class="brand-wordmark" id="brand-reset-link">
+      officialashutoshsrivastav
+    </a>
+
+    <!-- Zone 2: Interactive Cracker & Sound Controls -->
+    <div class="nav-actions">
+      <button type="button" class="control-btn control-btn--festive" id="top-crackers-btn"
+        style="font-family: 'Poppins', sans-serif;" aria-label="Trigger human lighting crackers and 3D fireworks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2v4"></path>
+          <path d="m19.07 4.93-2.83 2.83"></path>
+          <path d="M22 12h-4"></path>
+          <path d="m19.07 19.07-2.83-2.83"></path>
+          <path d="M12 22v-4"></path>
+          <path d="m4.93 19.07 2.83-2.83"></path>
+          <path d="M2 12h4"></path>
+          <path d="m4.93 4.93 2.83 2.83"></path>
+        </svg>
+        <span>Blow Crackers</span>
+      </button>
+
+      <button type="button" class="control-btn" id="sound-toggle-btn" aria-label="Toggle sound effects"
+        aria-pressed="true" style="font-family: 'Poppins', sans-serif;">
+        <svg id="sound-icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        </svg>
+        <span id="sound-label">Sound On</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Interactive 3D Stage -->
+  <main class="experience-stage" id="experience-stage" data-testid="experience-stage">
+    <!-- Warm Ambient Radial Lighting Layer -->
+    <div class="ambient-bloom" id="ambient-bloom" aria-hidden="true"></div>
+
+    <!-- High-DPI 3D Particle, Diya, Human Cracker-Lighting, Rangoli & Fireworks Canvas -->
+    <canvas id="cosmos-canvas" data-testid="cosmos-canvas"
+      aria-label="Interactive 3D Diwali light canvas — click to blow crackers, launch 3D sky lanterns, or sway the diya flame"></canvas>
+
+    <!-- Subtle Cinema Vignette -->
+    <div class="cinema-vignette" aria-hidden="true"></div>
+
+    <!-- SCENE 1: Darkness and Developer Terminal (with 3D Perspective Tilt) -->
+    <section class="scene-layer" id="terminal-layer" aria-label="Scene 1: Developer Terminal">
+      <div class="terminal-window" id="terminal-window">
+        <div class="terminal-header">
+          <div class="terminal-controls" aria-hidden="true">
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot terminal-dot--warm"></span>
+          </div>
+          <span class="terminal-title">@officialashutoshsrivastav : ~/ Full Stack Developer</span>
+          <span class="terminal-title">zsh</span>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+          <div class="terminal-lines" id="terminal-lines" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENES 2-4: Poetic Narrative Whisper -->
+    <aside class="narrative-whisper" id="narrative-whisper" aria-live="polite">
+      <p class="whisper-kicker" id="whisper-kicker">Chapter II</p>
+      <p class="whisper-caption" id="whisper-caption">
+        Every character of logic dissolves into warm golden light...
+      </p>
+    </aside>
+
+    <!-- SCENE 5: Developer's Message (with 3D Spatial Depth) -->
+    <section class="message-stage" id="message-stage" aria-label="Scene 5: Developer's Diwali Message">
+      <div class="message-card" id="message-card">
+        <!-- Clean Code Snippet with Syntax Highlighting -->
+        <pre class="code-poem" id="code-poem" aria-label="Diwali Code Poem"><code><span class="code-kw">while</span> <span class="code-punc">(</span><span class="code-var">alive</span><span class="code-punc">) {</span>
+    <span class="code-fn">spreadHappiness</span><span class="code-punc">();</span>
+<span class="code-punc">}</span></code></pre>
+
+        <!-- Main Greeting & Quote -->
+        <div class="greeting-block" id="greeting-block">
+          <h1 class="greeting-headline" id="greeting-headline">
+            <span>HAPPY DIWALI</span>
+            <span class="diya-inline-icon" role="img" aria-label="Diya lamp">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M32 6C32 6 22 18 22 26C22 31.5228 26.4772 36 32 36C37.5228 36 42 31.5228 42 26C42 18 32 6 32 6Z"
+                  fill="url(#flameGrad)" />
+                <path
+                  d="M32 13C32 13 26.5 21 26.5 26.2C26.5 29.2 28.9 31.8 32 31.8C35.1 31.8 37.5 29.2 37.5 26.2C37.5 21 32 13 32 13Z"
+                  fill="#FFF6D6" />
+                <path d="M8 38C8 35.8 18.7 34 32 34C45.3 34 56 35.8 56 38C56 47.9 45.3 56 32 56C18.7 56 8 47.9 8 38Z"
+                  fill="url(#clayGrad)" stroke="#F5C76B" stroke-width="1.5" />
+                <ellipse cx="32" cy="38" rx="23" ry="4.2" fill="#3B170B" stroke="#E89B3C" stroke-width="1.2" />
+                <defs>
+                  <linearGradient id="flameGrad" x1="32" y1="6" x2="32" y2="36" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FFF3D1" />
+                    <stop offset="55%" stop-color="#F5C76B" />
+                    <stop offset="100%" stop-color="#D96B27" />
+                  </linearGradient>
+                  <linearGradient id="clayGrad" x1="8" y1="34" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#B85A32" />
+                    <stop offset="50%" stop-color="#7A341C" />
+                    <stop offset="100%" stop-color="#4A1E10" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+          </h1>
+
+          <p class="greeting-quote" id="greeting-quote">
+            &ldquo;May your life compile without errors<br />
+            and shine with endless possibilities.&rdquo;
+          </p>
+
+          <!-- Developer Signature Lockup -->
+          <div class="developer-signature" id="developer-signature">
+            <p class="developer-name">ASHUTOSH SRIVASTAV</p>
+            <p class="developer-role">FULL STACK DEVELOPER</p>
+          </div>
+
+          <!-- Interactive Finale Actions -->
+          <!-- <div class="finale-actions" id="finale-actions">
+              <button type="button" class="btn-primary-gold" id="celebrate-btn">
+                Blow Crackers &amp; 3D Sky Lanterns
+              </button>
+              <button type="button" class="btn-secondary-warm" id="replay-btn">
+                Replay Experience
+              </button>
+            </div> -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Main Interactive Storytelling, 3D Projection & Canvas Engine -->
+  <script type="module" src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "From Code to Light — A Developer's Diwali",
+  "description": "A cinematic interactive storytelling web experience by Ashutosh Srivastav where programming code transforms into the warm golden light of Diwali.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
